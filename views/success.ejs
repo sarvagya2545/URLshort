@@ -4,12 +4,12 @@
         <h4 class="alert-heading">URL submitted</h4>
         <p>Your short URL has been successfully submitted and will be available at 
             <a href="<%= url %>">
-                http://localhost:5000/<%= shortURLname %>
+                http://<%= origin %>/<%= shortURLname %>
             </a>
             <button 
                 class="btn btn-success btnCopy" 
                 style="margin-left: 20px;" 
-                data-link="<%= 'http://localhost:5000/' + shortURLname %>"
+                data-link="<%= 'http://' + origin + '/' + shortURLname %>"
             >
                 <i class="bi bi-clipboard"></i>
             </button>
@@ -21,6 +21,6 @@
     </div>
 </div>
 
-<script src="http://localhost:5000/js/copy.js" defer></script>
+<script src="http://<%= origin %>/js/copy.js" defer></script>
 
 <%- include('partials/footer'); %>

@@ -19,7 +19,7 @@ mongoose.connect('mongodb://localhost:27017/URI', { useNewUrlParser: true, useUn
 ;
 
 app.get('/', (req, res) => {
-    res.render('index');
+    res.render('index', { origin: req.get('host') });
 })
 
 app.post('/', async (req, res) => {
@@ -54,12 +54,12 @@ app.get('/success/:token', (req, res) => {
     const decodedToken = jwt.decode(req.params.token, process.env.JWT_SECRET);
     const [ url, name ] = decodedToken.split('%');
 
-    res.render('success', { url, shortURLname: name });
+    res.render('success', { url, shortURLname: name, origin: req.get('host') });
 })
 
 app.get('/urls/all', async (req, res) => {
     const data = await Link.find({});
-    res.render('tables', { data });
+    res.render('tables', { data, origin: req.get('host') });
 })
 
 app.get('/:short', async (req, res) => {

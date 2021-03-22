@@ -23,7 +23,7 @@
                         </a>
                     </td>
                     <td>
-                        <button class="btn btn-success btnCopy" data-link="<%= 'http://localhost:5000/' + data[i].name %>">
+                        <button class="btn btn-success btnCopy" data-link="<%= 'http://' + origin + '/' + data[i].name %>">
                             <i class="bi bi-clipboard"></i>
                         </button>
                     </td>
@@ -36,6 +36,6 @@
     </a>
 </div>
 
-<script src="http://localhost:5000/js/copy.js"></script>
+<script src="http://<%= origin %>/js/copy.js"></script>
 
 <%- include('partials/footer'); %>
