@@ -1,0 +1,41 @@
+<%- include('partials/header'); %>
+
+<div class="container mt-5">
+    <table class="table table-sm">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">URL</th>
+                <th scope="col">ShortURL</th>
+                <th scope="col">GOTO</th>
+                <th scope="col">COPY</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i = 0; i < data.length; i++) { %> 
+                <tr>
+                    <th scope="row"><%= i + 1 %></th>
+                    <td style="width: 50%;"><%= data[i].url %></td>
+                    <td><%= data[i].name %></td>
+                    <td>
+                        <a href="<%= data[i].url %>" class="btn btn-primary" target="_blank">
+                            <i class="bi bi-arrow-up-right-square-fill"></i>
+                        </a>
+                    </td>
+                    <td>
+                        <button class="btn btn-success btnCopy" data-link="<%= 'http://localhost:5000/' + data[i].name %>">
+                            <i class="bi bi-clipboard"></i>
+                        </button>
+                    </td>
+                </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <a href="/" class="btn btn-primary">
+        Add URL
+    </a>
+</div>
+
+<script src="http://localhost:5000/js/copy.js"></script>
+
+<%- include('partials/footer'); %>

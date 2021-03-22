@@ -1,0 +1,26 @@
+<%- include('partials/header'); %>
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">URL submitted</h4>
+        <p>Your short URL has been successfully submitted and will be available at 
+            <a href="<%= url %>">
+                http://localhost:5000/<%= shortURLname %>
+            </a>
+            <button 
+                class="btn btn-success btnCopy" 
+                style="margin-left: 20px;" 
+                data-link="<%= 'http://localhost:5000/' + shortURLname %>"
+            >
+                <i class="bi bi-clipboard"></i>
+            </button>
+        </p>
+        <hr>
+        <p class="mb-0">
+            Original URL = <%= url %>
+        </p>
+    </div>
+</div>
+
+<script src="http://localhost:5000/js/copy.js" defer></script>
+
+<%- include('partials/footer'); %>

@@ -1,0 +1,24 @@
+<%- include('partials/header'); %> 
+
+<div class="container mt-5">
+    <form method="post" action="/">
+        <div class="mb-3">
+            <label for="url" class="form-label">URL to be shortened</label>
+            <input type="text" class="form-control" name="url" id="url" aria-describedby="urlHelp">
+            <div id="urlHelp" class="form-text">Enter the URL to be shortened</div>
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" name="isKeyword" id="isKeyword">
+            <label class="form-check-label" for="isKeyword">Use a custom keyword(name) for the url</label>
+        </div>
+        <div class="mb-3 hidden" id="keywordPanel">
+            <label for="keyword" class="form-label">Keyword</label>
+            <input type="text" class="form-control" id="keyword" name="keyword" aria-describedby="keywordHelp" pattern="^[A-Za-z0-9-_]+$">
+            <div id="keywordHelp" class="form-text">Your short URL will be defined by this keyword. e.g. short.ly/:keyword <br> Use only letters, numbers, underscores and hyphens, no spaces allowed.</div>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit URL</button>
+    </form>
+    <a class="btn btn-outline-success mt-3" href="/urls/all">See all links</a>
+</div>
+
+<%- include('partials/footer'); %>
