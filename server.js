@@ -6,14 +6,14 @@ const Link = require('./models/Link');
 const jwt = require('jwt-simple');
 
 const { getRandomName } = require('./utils');
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-mongoose.connect('mongodb://localhost:27017/URI', { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
+mongoose.connect(process.env.NODE_ENV !== 'production' ? 'mongodb://localhost:27017/URI' : process.env.MONGO_URL, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(() => { console.log('MongoDB connection established') })
     .catch((err) => { console.log('Connection failed', err) })
 ;
